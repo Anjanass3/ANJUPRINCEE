@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold-1: #F5E6BA;
+    --gold-2: #C5A059;
+    --gold-3: #97742D;
+    --sage-dark: #354534;
+    --sage-light: #F4F7F4;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #2D342E;
+    background-color: #FAF8F2;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Luxury Paper Texture with delicate noise */
+.paper-texture {
+  background-color: #FAF8F2;
+  background-image: 
+    radial-gradient(rgba(90, 105, 85, 0.04) 1px, transparent 1px),
+    radial-gradient(rgba(197, 160, 89, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px, 30px 30px;
+  background-position: 0 0, 10px 10px;
+}
+
+.paper-card {
+  background: #FFFFFF;
+  box-shadow: 
+    0 1px 3px rgba(45, 57, 43, 0.04),
+    0 8px 24px -4px rgba(45, 57, 43, 0.08),
+    0 24px 48px -12px rgba(45, 57, 43, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  position: relative;
+}
+
+/* Subtle Foil Gold Gradients */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #A8812D 0%, #D4AF37 40%, #F5E6BA 60%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border {
+  border-image: linear-gradient(to right, #B38E46, #F3E5AB, #B38E46) 1;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #B38E46 0%, #D4AF37 50%, #A8812D 100%);
+}
+
+.gold-gradient-soft {
+  background: linear-gradient(135deg, #F9F5EB 0%, #F1E5C8 50%, #FAF6EE 100%);
+}
+
+.sage-gradient-bg {
+  background: linear-gradient(145deg, #435842 0%, #344533 100%);
+}
+
+.sage-gradient-light {
+  background: linear-gradient(145deg, #F4F7F4 0%, #E6EDE5 100%);
+}
+
+/* Luxury Botanical Corner & Borders */
+.ornate-border {
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  outline: 1px solid rgba(197, 160, 89, 0.2);
+  outline-offset: 6px;
+}
+
+.ornate-border-sage {
+  border: 1px solid rgba(86, 113, 85, 0.3);
+  outline: 1px solid rgba(197, 160, 89, 0.25);
+  outline-offset: 5px;
+}
+
+/* Wax Seal and 3D Envelope Animations */
+@keyframes waxPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(131, 98, 25, 0.35);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 6px 28px rgba(212, 175, 55, 0.55);
+  }
+}
+
+.animate-wax-pulse {
+  animation: waxPulse 3s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #C5A059 0%, #FFF3D1 50%, #C5A059 100%);
+  background-size: 200% 100%;
+  animation: shimmer 6s infinite linear;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar for aesthetic elegance */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B38E46;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #836219;
+}
+
+/* Subtle Floating Flower Petals Animation */
+@keyframes floatingPetal {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.65;
+  }
+  88% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateY(105vh) translateX(45px) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+.animate-floating-petal {
+  animation-name: floatingPetal;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-floating-petal,
+  .animate-float,
+  .animate-wax-pulse,
+  .gold-shimmer {
+    animation: none !important;
+  }
+}
+
